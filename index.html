@@ -399,6 +399,14 @@
       border: 3px solid var(--border);
     }
 
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
     .photo-placeholder {
       width: 100%;
       height: 100%;
@@ -1345,10 +1353,7 @@
         <div class="hero-photo-wrap">
           <canvas class="lava-border" id="lava-canvas"></canvas>
           <div class="hero-photo">
-            <div class="photo-placeholder">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span data-en="Your Photo" data-es="Tu Foto">Your Photo</span>
-            </div>
+            <img src="images/Pictures/Daniel Castillo.jpg" alt="Dann">
           </div>
         </div>
       </div>
@@ -1462,7 +1467,7 @@
           Hey, it's
           <span class="name">Dann</span>
         </h1>
-        <p class="personal-hero-tagline" data-en="Gamer. Cinephile. Music Obsessive.\nReader. The person behind the code." data-es="Gamer. Cinéfilo. Amante de la Música.\nLector. La persona detrás del código.">Gamer. Cinephile. Music Obsessive.<br>Reader. The person behind the code.</p>
+        <p class="personal-hero-tagline" data-en="Trying to make something outta nothing.\nAlways keeping myself busy." data-es="Intentando hacer algo a partir de nada.\nSiempre manteniéndome ocupado.">Gamer. Cinephile. Music Obsessive.<br>Reader. The person behind the code.</p>
         <div class="personal-hero-cta">
           <button class="btn-primary" onclick="switchPage('professional')" data-en="See My Work →" data-es="Ver Mi Trabajo →">See My Work →</button>
           <button class="btn-outline" onclick="switchPage('contact')" data-en="Get in Touch" data-es="Escríbeme">Get in Touch</button>
@@ -1472,10 +1477,7 @@
         <div class="hero-photo-wrap">
           <canvas class="lava-border" id="lava-canvas-personal"></canvas>
           <div class="hero-photo">
-            <div class="photo-placeholder">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span>Your Photo</span>
-            </div>
+            <img src="images/Pictures/Dann.jpg" alt="Dann">
           </div>
         </div>
       </div>
