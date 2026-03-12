@@ -379,14 +379,33 @@
       height: 480px;
     }
 
+    /* Second counter-rotating ring */
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -22px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      opacity: 0.15;
+      animation: ringRotate 28s linear infinite reverse;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes ringRotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
     .lava-border {
       position: absolute;
-      inset: -6px;
+      inset: -10px;
       border-radius: 50%;
       z-index: 0;
-      filter: blur(3px);
-      width: calc(100% + 12px);
-      height: calc(100% + 12px);
+      filter: blur(8px);
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      opacity: 0.9;
     }
 
     .hero-photo {
@@ -396,7 +415,8 @@
       height: 100%;
       border-radius: 50%;
       overflow: hidden;
-      border: 3px solid var(--border);
+      border: 5px solid var(--accent);
+      box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent), inset 0 0 20px rgba(0,0,0,0.3);
     }
 
     .hero-photo img {
@@ -1016,6 +1036,7 @@
     }
 
     .cover-img[src=""], .cover-img:not([src]) { display: none !important; }
+    
 
     /* ── SHELF ── */
     .shelf {
@@ -1113,6 +1134,15 @@
       width: 50px; height: 50px; flex-shrink: 0;
       background: var(--bg3); display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem; border-radius: 3px; position: relative; overflow: hidden;
+    }
+    .music-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
     }
     .music-vinyl {
       position: absolute; inset: -3px; border-radius: 50%; opacity: 0;
@@ -1467,7 +1497,7 @@
           Hey, it's
           <span class="name">Dann</span>
         </h1>
-        <p class="personal-hero-tagline" data-en="Trying to make something outta nothing.\nAlways keeping myself busy." data-es="Intentando hacer algo a partir de nada.\nSiempre manteniéndome ocupado.">Gamer. Cinephile. Music Obsessive.<br>Reader. The person behind the code.</p>
+        <p class="personal-hero-tagline" data-en="Trying to make the most of what I have.\nAlways busy." data-es="Intentando aprovechar al máximo lo que tengo.\nSiempre ocupado.">Trying to make the most of what I have.<br>Always busy.</p>
         <div class="personal-hero-cta">
           <button class="btn-primary" onclick="switchPage('professional')" data-en="See My Work →" data-es="Ver Mi Trabajo →">See My Work →</button>
           <button class="btn-outline" onclick="switchPage('contact')" data-en="Get in Touch" data-es="Escríbeme">Get in Touch</button>
@@ -1494,84 +1524,84 @@
         <div class="shelf" id="shelf-games">
           <div class="shelf-card">
             <div class="shelf-card-badge">FAV</div>
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0a2e,#2d1060)"><img class="cover-img" src="" alt="🌌" style="display:none"><span class="cover-emoji">❤️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0a2e,#2d1060)"><img class="cover-img" src="images/Games/Undertale.jpg" alt="🌌" style="display:none"><span class="cover-emoji">❤️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Undertale</div>
               <div class="shelf-card-sub">Toby Fox · 2015</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0d2b1a,#1a5c30)"><img class="cover-img" src="" alt="🗡️" style="display:none"><span class="cover-emoji">⛏️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0d2b1a,#1a5c30)"><img class="cover-img" src="images/Games/Minecraft.jpg" alt="🗡️" style="display:none"><span class="cover-emoji">⛏️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Minecraft</div>
               <div class="shelf-card-sub">Mojang · 2011</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a1a0d,#4a4a10)"><img class="cover-img" src="" alt="🔫" style="display:none"><span class="cover-emoji">😢</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a1a0d,#4a4a10)"><img class="cover-img" src="images/Games/The Binding of Isaac.jpg" alt="🔫" style="display:none"><span class="cover-emoji">😢</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Binding of Isaac: Rebirth</div>
               <div class="shelf-card-sub">Edmund McMillen · 2014</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a1a,#101040)"><img class="cover-img" src="" alt="🚀" style="display:none"><span class="cover-emoji">🐛</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a1a,#101040)"><img class="cover-img" src="images/Games/Hollow Knight.jpg" alt="🚀" style="display:none"><span class="cover-emoji">🐛</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Hollow Knight</div>
               <div class="shelf-card-sub">Team Cherry · 2017</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0505,#4a1010)"><img class="cover-img" src="" alt="🏹" style="display:none"><span class="cover-emoji">🏔️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0505,#4a1010)"><img class="cover-img" src="images/Games/Celeste.jpg" alt="🏹" style="display:none"><span class="cover-emoji">🏔️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Celeste</div>
               <div class="shelf-card-sub">Maddy Makes Games · 2018</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="" alt="⚙️" style="display:none"><span class="cover-emoji">⭐</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="images/Games/Super Paper Mario.jpg" alt="⚙️" style="display:none"><span class="cover-emoji">⭐</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Super Paper Mario</div>
               <div class="shelf-card-sub">Nintendo · 2007</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a1a10,#103a20)"><img class="cover-img" src="" alt="🌿" style="display:none"><span class="cover-emoji">💨</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a1a10,#103a20)"><img class="cover-img" src="images/Games/Sonic Mania.jpg" alt="🌿" style="display:none"><span class="cover-emoji">💨</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Sonic Mania</div>
               <div class="shelf-card-sub">Christian Whitehead · 2017</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="" alt="⚙️" style="display:none"><span class="cover-emoji">🍄</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="images/Games/Super Mario 64.jpg" alt="⚙️" style="display:none"><span class="cover-emoji">🍄</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Super Mario 64</div>
               <div class="shelf-card-sub">Nintendo · 2007</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="" alt="⚙️" style="display:none"><span class="cover-emoji">🔥</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="images/Games/Dark Souls III.jpg" alt="⚙️" style="display:none"><span class="cover-emoji">🔥</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Dark Souls III</div>
               <div class="shelf-card-sub">FromSoftware · 2016</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="" alt="⚙️" style="display:none"><span class="cover-emoji">🌙</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="images/Games/Yume Nikki.jpg" alt="⚙️" style="display:none"><span class="cover-emoji">🌙</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Yume Nikki</div>
               <div class="shelf-card-sub">kikiyama · 2004</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="" alt="⚙️" style="display:none"><span class="cover-emoji">🚪</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="images/Games/The Stanley Parable.jpg" alt="⚙️" style="display:none"><span class="cover-emoji">🚪</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Stanley Parable</div>
               <div class="shelf-card-sub">Galactic Cafe · 2013</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="" alt="⚙️" style="display:none"><span class="cover-emoji">🔧</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#1a0d00,#3d2000)"><img class="cover-img" src="images/Games/Super Mario Maker 2.jpg" alt="⚙️" style="display:none"><span class="cover-emoji">🔧</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Super Mario Maker 2</div>
               <div class="shelf-card-sub">Nintendo · 2019</div>
@@ -1592,84 +1622,84 @@
         <div class="shelf" id="shelf-movies">
           <div class="shelf-card">
             <div class="shelf-card-badge">FAV</div>
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0510,#1a0a2e)"><img class="cover-img" src="" alt="🕳️" style="display:none"><span class="cover-emoji">🧩</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0510,#1a0a2e)"><img class="cover-img" src="images/Movies/Eternal Sunshine of the Spotless Mind.jpg" alt="🕳️" style="display:none"><span class="cover-emoji">🧩</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Eternal Sunshine of the Spotless Mind</div>
               <div class="shelf-card-sub">Gondry · 2004</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0d0d0d,#1a1a00)"><img class="cover-img" src="" alt="🌀" style="display:none"><span class="cover-emoji">🔒</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0d0d0d,#1a1a00)"><img class="cover-img" src="images/Movies/The Shawshank Redemption.jpg" alt="🌀" style="display:none"><span class="cover-emoji">🔒</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Shawshank Redemption</div>
               <div class="shelf-card-sub">Darabont · 1994</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100505,#2a0000)"><img class="cover-img" src="" alt="🤖" style="display:none"><span class="cover-emoji">💸</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100505,#2a0000)"><img class="cover-img" src="images/Movies/The Wolf of Wall Street.jpg" alt="🤖" style="display:none"><span class="cover-emoji">💸</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Wolf of Wall Street</div>
               <div class="shelf-card-sub">Scorsese · 2013</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#000510,#001a30)"><img class="cover-img" src="" alt="🏙️" style="display:none"><span class="cover-emoji">📺</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#000510,#001a30)"><img class="cover-img" src="images/Movies/The Truman Show.jpg" alt="🏙️" style="display:none"><span class="cover-emoji">📺</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Truman Show</div>
               <div class="shelf-card-sub">Weir · 1998</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a00,#1a1500)"><img class="cover-img" src="" alt="🧠" style="display:none"><span class="cover-emoji">🧹</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a00,#1a1500)"><img class="cover-img" src="images/Movies/Kiki's Delivery Service.jpg" alt="🧠" style="display:none"><span class="cover-emoji">🧹</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Kiki's Delivery Service</div>
               <div class="shelf-card-sub">Miyazaki · 1990</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050a00,#0d1a00)"><img class="cover-img" src="" alt="🎭" style="display:none"><span class="cover-emoji">🥁</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050a00,#0d1a00)"><img class="cover-img" src="images/Movies/Whiplash.jpg" alt="🎭" style="display:none"><span class="cover-emoji">🥁</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Whiplash</div>
               <div class="shelf-card-sub">Chazelle · 2014</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="" alt="🌵" style="display:none"><span class="cover-emoji">⚖️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="images/Movies/12 Angry Men.jpg" alt="🌵" style="display:none"><span class="cover-emoji">⚖️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">12 Angry Men</div>
               <div class="shelf-card-sub">Sidney Lumet · 1957</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="" alt="🌵" style="display:none"><span class="cover-emoji">🌊</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="images/Movies/Spirited Away.jpg" alt="🌵" style="display:none"><span class="cover-emoji">🌊</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Spirited Away</div>
               <div class="shelf-card-sub">Miyazaki · 2002</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="" alt="🌵" style="display:none"><span class="cover-emoji">🤠</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="images/Movies/Django Unchained.jpg" alt="🌵" style="display:none"><span class="cover-emoji">🤠</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Django Unchained</div>
               <div class="shelf-card-sub">Tarantino · 2012</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="" alt="🌵" style="display:none"><span class="cover-emoji">🕸️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="images/Movies/Spider-Man Across the Spider-Verse.jpg" alt="🌵" style="display:none"><span class="cover-emoji">🕸️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Spider-Man: Across the Spider-Verse</div>
               <div class="shelf-card-sub">Dos Santos · 2023</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="" alt="🌵" style="display:none"><span class="cover-emoji">🎷</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="images/Movies/La La Land.jpg" alt="🌵" style="display:none"><span class="cover-emoji">🎷</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">La La Land</div>
               <div class="shelf-card-sub">Chazelle · 2016</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="" alt="🌵" style="display:none"><span class="cover-emoji">🤝</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#2a1800)"><img class="cover-img" src="images/Movies/The Intouchables.jpg" alt="🌵" style="display:none"><span class="cover-emoji">🤝</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Intouchables</div>
               <div class="shelf-card-sub">Nakache · 2011</div>
@@ -1685,75 +1715,75 @@
         <div class="media-header">
           <span class="media-number">03 //</span>
           <span class="media-title" data-en="<em>Shows</em>" data-es="<em>Series</em>"><em>Shows</em></span>
-          <span class="media-count" data-en="BINGE-WORTHY" data-es="IMPRESCINDIBLES">BINGE-WORTHY</span>
+          <span class="media-count" data-en="MUST WATCH" data-es="IMPRESCINDIBLES">MUST WATCH</span>
         </div>
         <div class="shelf" id="shelf-shows">
           <div class="shelf-card">
             <div class="shelf-card-badge">FAV</div>
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050510,#0d0d2a)"><img class="cover-img" src="" alt="⚗️" style="display:none"><span class="cover-emoji">🏢</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050510,#0d0d2a)"><img class="cover-img" src="images/Shows/Severance.jpg" alt="⚗️" style="display:none"><span class="cover-emoji">🏢</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Severance</div>
               <div class="shelf-card-sub">Apple TV+ · 2022–</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100500,#2a0d00)"><img class="cover-img" src="" alt="🔬" style="display:none"><span class="cover-emoji">⚔️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100500,#2a0d00)"><img class="cover-img" src="images/Shows/Vinland Saga.jpg" alt="🔬" style="display:none"><span class="cover-emoji">⚔️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Vinland Saga</div>
               <div class="shelf-card-sub">WIT Studio · 2019–</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#000510,#00102a)"><img class="cover-img" src="" alt="🏢" style="display:none"><span class="cover-emoji">🗡️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#000510,#00102a)"><img class="cover-img" src="images/Shows/Attack on Titan.jpg" alt="🏢" style="display:none"><span class="cover-emoji">🗡️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Attack on Titan</div>
               <div class="shelf-card-sub">WIT Studio · 2013–2023</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a00,#201e00)"><img class="cover-img" src="" alt="👑" style="display:none"><span class="cover-emoji">🌀</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a00,#201e00)"><img class="cover-img" src="images/Shows/Mob Psycho 100.jpg" alt="👑" style="display:none"><span class="cover-emoji">🌀</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Mob Psycho 100</div>
               <div class="shelf-card-sub">Bones · 2016–2022</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050a00,#0f1a00)"><img class="cover-img" src="" alt="🤖" style="display:none"><span class="cover-emoji">📋</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050a00,#0f1a00)"><img class="cover-img" src="images/Shows/Nathan for You.jpg" alt="🤖" style="display:none"><span class="cover-emoji">📋</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Nathan for You</div>
               <div class="shelf-card-sub">Comedy Central · 2011–2018</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="" alt="🌐" style="display:none"><span class="cover-emoji">💻</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="images/Shows/Serial Experiments Lain.jpg" alt="🌐" style="display:none"><span class="cover-emoji">💻</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Serial Experiments Lain</div>
               <div class="shelf-card-sub">Triangle Staff · 1999</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="" alt="🌐" style="display:none"><span class="cover-emoji">📓</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="images/Shows/Death Note.jpg" alt="🌐" style="display:none"><span class="cover-emoji">📓</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Death Note</div>
               <div class="shelf-card-sub">Madhouse · 2006–2007</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="" alt="🌐" style="display:none"><span class="cover-emoji">🔭</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="images/Shows/Gravity Falls.jpg" alt="🌐" style="display:none"><span class="cover-emoji">🔭</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Gravity Falls</div>
               <div class="shelf-card-sub">Disney · 2012–2016</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="" alt="🌐" style="display:none"><span class="cover-emoji">☢️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="images/Shows/Chernobyl.jpg" alt="🌐" style="display:none"><span class="cover-emoji">☢️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Chernobyl</div>
               <div class="shelf-card-sub">HBO · 2019</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="" alt="🌐" style="display:none"><span class="cover-emoji">🌿</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0005,#1a0010)"><img class="cover-img" src="images/Shows/The Promised Neverland.jpg" alt="🌐" style="display:none"><span class="cover-emoji">🌿</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Promised Neverland</div>
               <div class="shelf-card-sub">CloverWorks · 2019–2021</div>
@@ -1773,7 +1803,7 @@
         </div>
         <div class="music-grid">
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/The Modern Western World.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">The Modern Western World</div>
               <div class="music-artist">Vansire</div>
@@ -1782,7 +1812,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Smile.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Smile</div>
               <div class="music-artist">Eve</div>
@@ -1791,7 +1821,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Random Access Memories.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Random Access Memories</div>
               <div class="music-artist">Daft Punk</div>
@@ -1800,7 +1830,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Morgana.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Morgana</div>
               <div class="music-artist">Geno Samuel</div>
@@ -1809,7 +1839,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Everything I Know About Love.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Everything I Know About Love</div>
               <div class="music-artist">Laufey</div>
@@ -1818,7 +1848,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Currents.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Currents</div>
               <div class="music-artist">Tame Impala</div>
@@ -1827,7 +1857,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Now and Then.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Now and Then</div>
               <div class="music-artist">khai dreams</div>
@@ -1836,7 +1866,7 @@
             <div class="music-eq"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
           </div>
           <div class="music-card">
-            <div class="music-thumb">🎵<div class="music-vinyl"></div></div>
+            <div class="music-thumb"><img src="images/Music/Meteora.jpg"><div class="music-vinyl"></div></div>
             <div class="music-info">
               <div class="music-title">Meteora</div>
               <div class="music-artist">Linkin Park</div>
@@ -1859,56 +1889,56 @@
         <div class="shelf" id="shelf-books">
           <div class="shelf-card">
             <div class="shelf-card-badge">TOP</div>
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a1a,#101030)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">🪲</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0a1a,#101030)"><img class="cover-img" src="images/Books/The Metamorphosis.jpg" alt="📖" style="display:none"><span class="cover-emoji">🪲</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Metamorphosis</div>
               <div class="shelf-card-sub">Franz Kafka</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#201500)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">🚀</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#100a00,#201500)"><img class="cover-img" src="images/Books/The Martian.jpg" alt="📖" style="display:none"><span class="cover-emoji">🚀</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">The Martian</div>
               <div class="shelf-card-sub">Andy Weir</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#001010,#001e1e)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">🧛</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#001010,#001e1e)"><img class="cover-img" src="images/Books/American Vampire.jpg" alt="📖" style="display:none"><span class="cover-emoji">🧛</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">American Vampire</div>
               <div class="shelf-card-sub">Scott Snyder</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0d0005,#1e000d)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">😶</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0d0005,#1e000d)"><img class="cover-img" src="images/Books/I Have No Mouth, and I Must Scream.jpg" alt="📖" style="display:none"><span class="cover-emoji">😶</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">I Have No Mouth, and I Must Scream</div>
               <div class="shelf-card-sub">Harlan Ellison</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050a00,#0d1e00)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">⛓️</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050a00,#0d1e00)"><img class="cover-img" src="images/Books/Chainsaw Man.jpg" alt="📖" style="display:none"><span class="cover-emoji">⛓️</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Chainsaw Man</div>
               <div class="shelf-card-sub">Tatsuki Fujimoto</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0500,#1e1000)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">📈</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#0a0500,#1e1000)"><img class="cover-img" src="images/Books/Atomic Habits.jpg" alt="📖" style="display:none"><span class="cover-emoji">📈</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Atomic Habits</div>
               <div class="shelf-card-sub">James Clear</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050005,#100010)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">🏃</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050005,#100010)"><img class="cover-img" src="images/Books/Runaways.jpg" alt="📖" style="display:none"><span class="cover-emoji">🏃</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Runaways</div>
               <div class="shelf-card-sub">Brian K. Vaughan</div>
             </div>
           </div>
           <div class="shelf-card">
-            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050005,#100010)"><img class="cover-img" src="" alt="📖" style="display:none"><span class="cover-emoji">⭐</span></div>
+            <div class="shelf-card-cover" style="background:linear-gradient(135deg,#050005,#100010)"><img class="cover-img" src="images/Books/Wonder.jpg" alt="📖" style="display:none"><span class="cover-emoji">⭐</span></div>
             <div class="shelf-card-info">
               <div class="shelf-card-name">Wonder</div>
               <div class="shelf-card-sub">R. J. Palacio</div>
@@ -1959,9 +1989,61 @@
     // ── GRACEFUL RIPPLE (3 seconds, first load only) ──
     let ripplePlayed = false;
 
+    // ── RIPPLE SOUND ──
+    // Plays a soft ambient whoosh when the intro ripple fires.
+    // To swap in your own sound: replace playRippleSound() with:
+    //   const sfx = new Audio('sounds/your-file.mp3'); sfx.play();
+    function playRippleSound() {
+      try {
+        const ac = new (window.AudioContext || window.webkitAudioContext)();
+
+        // Layer 1: deep bass thud
+        const thud = ac.createOscillator();
+        const thudGain = ac.createGain();
+        thud.type = 'sine';
+        thud.frequency.setValueAtTime(80, ac.currentTime);
+        thud.frequency.exponentialRampToValueAtTime(30, ac.currentTime + 0.6);
+        thudGain.gain.setValueAtTime(0.6, ac.currentTime);
+        thudGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 0.7);
+        thud.connect(thudGain);
+        thudGain.connect(ac.destination);
+        thud.start(ac.currentTime);
+        thud.stop(ac.currentTime + 0.7);
+
+        // Layer 2: airy sweep
+        const sweep = ac.createOscillator();
+        const sweepGain = ac.createGain();
+        sweep.type = 'sine';
+        sweep.frequency.setValueAtTime(320, ac.currentTime + 0.05);
+        sweep.frequency.exponentialRampToValueAtTime(80, ac.currentTime + 2.5);
+        sweepGain.gain.setValueAtTime(0, ac.currentTime);
+        sweepGain.gain.linearRampToValueAtTime(0.18, ac.currentTime + 0.15);
+        sweepGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 2.8);
+        sweep.connect(sweepGain);
+        sweepGain.connect(ac.destination);
+        sweep.start(ac.currentTime + 0.05);
+        sweep.stop(ac.currentTime + 2.8);
+
+        // Layer 3: shimmer (high harmonic)
+        const shimmer = ac.createOscillator();
+        const shimmerGain = ac.createGain();
+        shimmer.type = 'sine';
+        shimmer.frequency.setValueAtTime(1200, ac.currentTime + 0.1);
+        shimmer.frequency.exponentialRampToValueAtTime(400, ac.currentTime + 1.8);
+        shimmerGain.gain.setValueAtTime(0, ac.currentTime + 0.1);
+        shimmerGain.gain.linearRampToValueAtTime(0.06, ac.currentTime + 0.3);
+        shimmerGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 2.2);
+        shimmer.connect(shimmerGain);
+        shimmerGain.connect(ac.destination);
+        shimmer.start(ac.currentTime + 0.1);
+        shimmer.stop(ac.currentTime + 2.2);
+      } catch(e) {}
+    }
+
     (function() {
       // Lock scroll and show overlay during transition
       document.body.classList.add('transition-active');
+      playRippleSound();
       const overlay = document.getElementById('transition-overlay');
 
       const canvas = document.getElementById('ripple-canvas');
